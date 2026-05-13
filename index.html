@@ -1,6 +1,103 @@
-<iframe src="archive.org" 
-        allow="autoplay; fullscreen; gamepad; keyboard;" 
-        webkitallowfullscreen="true" 
-        mozallowfullscreen="true" 
-        allowfullscreen="true">
-</iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alexs-12/2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0d0d11;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Comfortable non-stretched 4:3 PlayStation layout framework */
+        .arcade-container {
+            width: 95vw;
+            height: 71.25vw; 
+            max-width: 106.66vh; 
+            max-height: 80vh; 
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 4px solid #1f1f2e;
+            background-color: #000000;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .action-bar {
+            margin-top: 18px;
+        }
+
+        .scale-btn {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .scale-btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Direct Correctly-Formatted Internet Archive Emulator Engine -->
+    <div class="arcade-container" id="displayFrame">
+        <iframe src="archive.org" 
+                allow="autoplay; fullscreen; gamepad; keyboard;" 
+                webkitallowfullscreen="true" 
+                mozallowfullscreen="true" 
+                allowfullscreen="true">
+        </iframe>
+    </div>
+
+    <div class="action-bar">
+        <button class="scale-btn" onclick="goFullscreen()">Go Fullscreen</button>
+    </div>
+
+    <script>
+        // Forces target window identifier tab configuration
+        document.title = "alexs-12/2";
+
+        function goFullscreen() {
+            var target = document.getElementById("displayFrame");
+            if (!document.fullscreenElement) {
+                if (target.requestFullscreen) { target.requestFullscreen(); }
+                else if (target.webkitRequestFullscreen) { target.webkitRequestFullscreen(); }
+            } else {
+                if (document.exitFullscreen) { document.exitFullscreen(); }
+            }
+        }
+    </script>
+
+</body>
+</html>
